@@ -1,0 +1,104 @@
+Java多态中：
+	成员变量，编译看父类，运行也看父类
+	成员方法，编译看父类，运行看子类
+
+instanceof:
+	用来比较一个引用型对象是不是属于某一类，只能对有继承或者实现关系的类才能使用
+	example：Boolean a = p instanceof Student 判断对象p是不是属于类Student，是的话返回ture,不是的话返回false
+
+转型：
+	向上转型，可以调用父类和子类共有的类型
+	向下转型，需要强制，转过之后，就可以使用子类独有的方法
+
+构造函数：
+	new一个对象其实实质就是在调用构造方法
+	所有的子类构造函数，不管重载多少个构造函数，第一行都要是super()，即先构造父类，如果不写的话，也是默认写了super()
+	构造方法第一行，写this()或者super()，但是两者不能同时存在，任选其一，必须要保证子类的所有构造方法调用到父类的构造方法即可
+
+final:
+	修饰的是成员变量，固定的不是内存的默认值，即必须要手动赋值，绝对不是内存的默认值；或者在构造函数里赋值。
+
+static:
+	在成员变量前面加入static，可以使这个数据成为对象的共享数据。
+
+内存中，静态成员优先于非静态成员存在。在静态中不能使用非静态，因为现有的静态，再有非静态，所以静态里面无法预知到会有什么样的非静态会到来。
+成员函数中要是没用到成员变量时，加上static，要是局部变量都是静态成员变量，那么也加上static。
+
+内部类：
+	将一个类定义在另一个类的内部之中（成员内部类），或者其他类的内部成员方法之中（局部内部类）。
+	内部类可以调用外部类成员，包括私有；
+	外部类想要使用内部类成员，必须建立内部类对象。
+
+包：
+	Java的包，其实就是我们电脑中的文件夹，包里存放的是类文件。当类的数目太多了，在项目中，将功能相近的类文件放到一个包里面，分类管理。
+	导入包时，必须引入到该包所在的最底层文件夹里才行。
+
+权限：
+	default权限，且只能同包下的任何类可以使用；
+	protected权限，本包所有类里面都可以访问，或者其他包的子类里面也可以访问。
+
+代码块：
+	静态代码块只执行一次static{              }
+	构造代码块{              }和构造函数Object( ){           }会在每次生成新的对象时，反复执行。
+	执行顺序：静态代码块 > 构造代码块 > 构造函数。
+
+冲突修饰符：
+	abstract与private不能共用
+	abstract与static不能共用
+	abstract与final不能共用
+
+静态方法：
+	如果类中的成员方法没有使用到类当中的成员变量，那么最好将这个方法设置为静态方法，方便于直接使用类名调用该方法，不用new对象造成空间的浪费。
+
+抽象类：
+	抽象类是无法new对象的，抽象类要是想要作为参数，则必须要用子类的对象作为参数；同理，如果方法要返回一个抽象类的对象，那么也可以返回这个抽象类子类的对象。
+
+toString:
+	打印一个对象就是打印这个对象的toString方法的返回值。
+
+字符串的本质就是字符数组，一旦建立，终生不变。
+
+s.toCharArray()：将s字符串转为数组。
+
+StringBuffer:
+	因为String类过于消耗内存，所以StringBuffer类是为了方便字符串操作而产生的，提高原有字符串造作效率，是一种可变的字符串，其内部的字符数组是没有final的，是可变的。
+	常用方法：
+		append("string"):追加字符串string	delete(start , end):删除从start位置到end位置的字符串  	insert(start,string):在start位置插入字符串string	replace(start,end string):将从start到end的字符串用string代替
+	append可以接收任意类型，但是返回的都是StringBuffer类型
+	Java中开始结束索引，都是包含了开始，但没有包含结束。
+
+正则表达式：
+	[abc]是a，或者b，或者c
+	[^abc]不能是a、b、c中的任意一个
+	[a-zA-Z0-9_]所有大小写字母或者数字或者下划线
+	[.]任意字符
+	[a]{5,10}字符a出现5之10次
+	1[34578][0-9]{9}第一个字符必须是1，第二个字符是34578中的任意一个，第三个字符是0-9中的任意一个，第三个字符根据要求重复9次。最终结果是一个手机号码的正则表达式。
+	a*标识a出现多次
+	Boolean string.maches(规则)判断字符串string是否符合规则
+	String[] arry = string.split("-");将字符串string按照“-”来切割，将切割的结果放到数组里面。
+
+post和get请求的区别：
+	https://www.cnblogs.com/logsharing/p/8448446.html
+	get会把数据放在url地址里，而post会把信息放到request body里面；get一般有传输大小2K,服务器端64K,而post没有限制。
+	GET产生一个TCP数据包；POST产生两个TCP数据包。
+
+Data:
+	java中data类是以毫秒存储的。
+	SimpleDateFormat simple = new SimpleDateFormat("yyyy年MM月dd日HH点mm分ss秒.
+	format将Data类型改成字符串，parse将字符串改成Data类型。
+
+BigInteger:
+    BigInteger类的对象可以表示任意长度的数字，通常使用字符串来作为构造函数的参数。
+    BigInteger a,b  如果表示a+b可以用a.add(b)，表示a-b可以用a.subtract(b)。
+    如果表示a*b可以用a.multiply(b),表示a/b可以用a.divide(b)。
+
+ArrayList:
+    集合是用来存储引用对象的可变数组，不能用于存储基本对象。
+    List中允许有重复元素，而且元素都是有序的；而Set中不允许有重复元素，而且元素都是无序的。
+    list.clear()清空集合；list.contains(object)判断一个对象是否存在集合里面。
+	list.size()返回集合的大小；list.toArray()将集合转换为数组。list.remove(object)删除对象，返回布尔值，如果有重复元素，则删除第一个遇到的元素。
+    Iterator<String> it = list.iterator();用来生成迭代器。it.hasnext()  it.next()   it.remove()。
+
+Iterable:
+    增强for循环。
