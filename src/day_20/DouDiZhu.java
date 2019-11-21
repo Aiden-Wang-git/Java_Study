@@ -13,10 +13,14 @@ import java.util.*;
  */
 public class DouDiZhu {
     public static void main(String[] args) {
+        //创建一副扑克牌
         Map<Integer,Cards> map = function1();
+        //洗牌
         List<Integer> list = function2();
+        //发牌
         List<Map<Integer,Cards>> list1 = function3(map,list);
-        function4(list1);
+        //看牌
+        function4(list1,map);
     }
 
     //创建纸牌
@@ -24,9 +28,9 @@ public class DouDiZhu {
         List<Integer> list =new ArrayList<>();
         String[] cardnum = {"2", "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3"};
         Map<Integer, Cards> map = new HashMap<>();
-        map.put(0, new Cards("red", "大王"));
+        map.put(0, new Cards("", "大王"));
         list.add(0);
-        map.put(1, new Cards("black", "小王"));
+        map.put(1, new Cards("", "小王"));
         list.add(1);
         for (int i = 0; i < 13; ++i) {
             for (int j = 0; j < 4; ++j) {
@@ -97,14 +101,14 @@ public class DouDiZhu {
     }
 
     //看牌
-    public static void function4(List<Map<Integer,Cards>> list){
+    public static void function4(List<Map<Integer,Cards>> list,Map<Integer,Cards> map){
         List<Integer> list1 =new ArrayList<>();
         List<Integer> list2 =new ArrayList<>();
         List<Integer> list3 =new ArrayList<>();
         List<Integer> list4 =new ArrayList<>();
         int i =0;
-        for (Map<Integer,Cards> map:list){
-            for (Map.Entry<Integer,Cards> entry:map.entrySet()){
+        for (Map<Integer,Cards> map1:list){
+            for (Map.Entry<Integer,Cards> entry:map1.entrySet()){
                 switch (i){
                     case 0:
                         list1.add(entry.getKey());
@@ -122,11 +126,30 @@ public class DouDiZhu {
             }
             ++i;
         }
-        for (Map<Integer,Cards> map :list){
-          for (Map.Entry<Integer,Cards> entry:map.entrySet()){
-              System.out.print(entry.getValue().getColor()+entry.getValue().getNumber()+",");
-          }
-            System.out.println();
+        Collections.sort(list1);
+        Collections.sort(list2);
+        Collections.sort(list3);
+        Collections.sort(list4);
+        System.out.print("player1:");
+        for (Integer integer :list1){
+            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+",");
         }
+        System.out.println();
+        System.out.print("player2:");
+        for (Integer integer :list2){
+            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+",");
+        }
+        System.out.println();
+        System.out.print("player3:");
+        for (Integer integer :list3){
+            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+",");
+        }
+        System.out.println();
+        System.out.print("底牌:");
+        for (Integer integer :list4){
+            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+",");
+        }
+
+
     }
 }
