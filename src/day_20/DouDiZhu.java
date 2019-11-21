@@ -132,22 +132,22 @@ public class DouDiZhu {
         Collections.sort(list4);
         System.out.print("player1:");
         for (Integer integer :list1){
-            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+",");
+            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+" ");
         }
         System.out.println();
         System.out.print("player2:");
         for (Integer integer :list2){
-            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+",");
+            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+" ");
         }
         System.out.println();
         System.out.print("player3:");
         for (Integer integer :list3){
-            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+",");
+            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+" ");
         }
         System.out.println();
         System.out.print("底牌:");
         for (Integer integer :list4){
-            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+",");
+            System.out.print(map.get(integer).getColor()+map.get(integer).getNumber()+" ");
         }
 
 
