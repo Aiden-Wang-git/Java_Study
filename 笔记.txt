@@ -134,8 +134,16 @@ Java异常：
     抛出的异常如果是平级的，那么异常的捕获不分先后。但是如果异常中出现了上下级的异常，越高级的越是要放到下面。因为要是把高级的放到前面，那么低级的永远都不会执行了，实质就是多态的调用。
     finally{ }必须要执行的代码块，不管有没有捕获到异常，里面的代码块都会被执行。
     异常分为两大类：
-        编译异常：调用了抛出异常的方法，不处理编译失败（try throws）
-        运行异常：抛出的异常时RuntimeException类或者他的子类
+        编译异常：调用了抛出异常的方法，不处理编译失败（try throws）。
+        运行异常：抛出的异常时RuntimeException类或者他的子类，一旦出现这种异常，就要改源代码了。
         运行异常的特点：
             方法内部抛出的异常时运行异常，new XXXException
             方法的声明上，不需要throws语句。
+    子类抛出的异常只能是和父类一样的异常，或者父类异常的子类，如果父类没有抛出异常，那么子类也不能抛出异常，只能用try catch来解决异常。
+
+IO流：
+    Windows下的文件系统是不区分大小写的，用的是\;但是Linux系统是区分的，用的是/
+    File类的三种构造方法，File file = new File(String 路径名) ， File file = new File（String 父路径名， String 子路径名） ， File file = new File(File 父路径对象，String 子路径名)。
+    boolean mkdir()创建文件夹，mkdirs()创建多层（含单层）文件夹（推荐使用）    boolean createNewFile()创建文件
+    boolean delete（）不走回收站，删除的内容无法从回收站里找回。
+    file.exists()如果file里面写的是相对路径，那么exists()函数将会从当前项目的根目录下去寻找文件是否存在。
