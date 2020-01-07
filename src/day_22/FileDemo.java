@@ -31,5 +31,21 @@ public class FileDemo {
         File []files = file2.listFiles();
         for (File file3 : files)
             System.out.println(file3);
+        System.out.println("=============================");
+        File [] files1 = file2.listFiles(new Myfliter());
+        for (File file3:files1){
+            System.out.println(file3);
+        }
+        System.out.println("=========================");
+        searchAll(file2);
+    }
+
+    public static void searchAll(File file){
+        File[] files = file.listFiles();
+        for (File file1:files){
+            if (file1.isDirectory())
+                searchAll(file1);
+            else System.out.println(file1);
+        }
     }
 }

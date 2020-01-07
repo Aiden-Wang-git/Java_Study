@@ -147,3 +147,4 @@ IO流：
     boolean mkdir()创建文件夹，mkdirs()创建多层（含单层）文件夹（推荐使用）    boolean createNewFile()创建文件
     boolean delete（）不走回收站，删除的内容无法从回收站里找回。
     file.exists()如果file里面写的是相对路径，那么exists()函数将会从当前项目的根目录下去寻找文件是否存在。
+    FileFilter是过滤器，是一个抽象方法。可以得到满足要求的文件。
