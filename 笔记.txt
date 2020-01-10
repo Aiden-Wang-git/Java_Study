@@ -148,3 +148,8 @@ IO流：
     boolean delete（）不走回收站，删除的内容无法从回收站里找回。
     file.exists()如果file里面写的是相对路径，那么exists()函数将会从当前项目的根目录下去寻找文件是否存在。
     FileFilter是过滤器，是一个抽象方法。可以得到满足要求的文件。
+
+    Outputstream:
+        write()写入数据，close()释放资源。
+    Inputstream:
+        read()读取数据，但是每次只会读取一个数据，而且会返回数据的ASCII值，当读取到文件的结尾后，会返回-1。
