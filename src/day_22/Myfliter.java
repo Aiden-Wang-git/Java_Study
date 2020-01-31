@@ -14,6 +14,6 @@ import java.io.FileFilter;
 public class Myfliter implements FileFilter{
     @Override
     public boolean accept(File pathname) {
-        return pathname.getName().endsWith(".rar");
+        return pathname.getName().endsWith(".mp3");
     }
 }

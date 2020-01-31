@@ -2,11 +2,6 @@
   <library name="shooping">
     <CLASSES />
     <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/../购物系统" />
-    </SOURCES>
-    <excluded>
-      <root url="file://$PROJECT_DIR$/../购物系统" />
-    </excluded>
+    <SOURCES />
   </library>
 </component>
