@@ -157,3 +157,6 @@ IO流：
     Writer.write()在往文件里面写完数据之后，必须要调用Writer.flush()这个方法刷新，否则无法将数据写入。其实close()方法也暗含着刷新这个功能。
     写入的数据有byte变为char和string。
     Reader.read()功能是读取文本文件，同上类似，但是只能读取字符和字符数组，无法读取字符串，因为对于一个文本文件，无法给字符串一个确切的定义。
+
+    OutputStreamWriter将字符转换为字节，目的就改变字符的不同编码表。是字符流向字节的桥梁。
+    InputStreamReader将字节转成字符流。
