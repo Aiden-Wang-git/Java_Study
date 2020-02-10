@@ -160,3 +160,31 @@ IO流：
 
     OutputStreamWriter将字符转换为字节，目的就改变字符的不同编码表。是字符流向字节的桥梁。
     InputStreamReader将字节转成字符流。
+
+    readline()方法只是返回一行的有效字符串，不会附加\r\n,如果这一行是空的，那么返回Null。
+    	转换吗？转换流。InputStreamReader OutputStreamWriter
+    			高效吗？缓冲区对象。BufferedXXX
+         InputStream
+           FileInputStream
+           BufferedInputStream
+    OuputStream
+       FileOutputStream
+       BufferedOuputStream
+    Writer
+      OutputStreamWriter
+         FileWriter
+          BufferedWriter
+    Reader
+      InputStreamReader
+         FileReader
+     BufferedReader
+
+ Properties类继承Hashtable，实现Map接口，可以和IO对象结合使用，实现数据的持久存储。
+    load(InputStream in)或者load(Reader r)传递任意字节或者字符的输入流。流对象读取文件中的键值对，保存到集合中。
+
+ObjectOutputStream(FileOutStream fos)进行对象的序列化，即将对象写入文件中，ObjectInputStream(FileInputStream fis)进行对象的反序列化，即将文件中的对象读取出来。
+    序列化和反序列化只是针对对象的操作，并且类中的静态成员不属于对象成员，所以无法序列化。对于非静态成员，如果不想对其序列化，可以加上修饰词transient。
+
+打印流PrintStream字节流和PrintWriter字符流
+    print方法会原样向文档里做输出，不会走码表。
+在打印数组的时候，只有打印char数组才会遍历，打印其他的数组，只会打印出地址。
