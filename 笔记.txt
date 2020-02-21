@@ -188,3 +188,7 @@ ObjectOutputStream(FileOutStream fos)进行对象的序列化，即将对象写�
 打印流PrintStream字节流和PrintWriter字符流
     print方法会原样向文档里做输出，不会走码表。
 在打印数组的时候，只有打印char数组才会遍历，打印其他的数组，只会打印出地址。
+
+多线程：
+    当一个类继承了thread类，并且重写了run()方法就可以多线程了。
+    或者实现Runnable接口的类,创建tread对象，在构造函数中传runnable的实现类对象，调用tread类的方法start()。
