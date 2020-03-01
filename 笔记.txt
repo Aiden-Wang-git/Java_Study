@@ -192,3 +192,6 @@ ObjectOutputStream(FileOutStream fos)进行对象的序列化，即将对象写�
 多线程：
     当一个类继承了thread类，并且重写了run()方法就可以多线程了。
     或者实现Runnable接口的类,创建tread对象，在构造函数中传runnable的实现类对象，调用tread类的方法start()。
+
+多线程的安全性操作：
+    当一个线程进入操作数据时，无论是否休眠，别的线程只能等待。
