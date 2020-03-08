@@ -195,3 +195,9 @@ ObjectOutputStream(FileOutStream fos)进行对象的序列化，即将对象写�
 
 多线程的安全性操作：
     当一个线程进入操作数据时，无论是否休眠，别的线程只能等待。
+
+数据库
+    Java中的类和数据库中的表有一个对应关系，表中的列即对应着类中的成员字段，表中的每行数据对应着Java中的对象。
+    查询中的通配符使用方法，例如：select name from students where name like '王_' or '张%';  其中_匹配一个字符，%匹配多个字符。
+    查询在条件之间的数据可以用between…… and……;这个是包含头尾的。
+    先过滤where,再分组group by,再再过滤having,最后排序 oder by。
