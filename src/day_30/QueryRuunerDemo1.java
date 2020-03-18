@@ -9,6 +9,7 @@ import org.apache.commons.dbutils.handlers.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: Java_Test
@@ -22,7 +23,8 @@ public class QueryRuunerDemo1 {
 
     public static void main(String[] args) throws SQLException {
 //        arraryHandelr();
-        beanHandler();
+//        beanHandler();
+        mapHandler();
     }
 
     public static void arraryHandelr() throws SQLException {
@@ -42,6 +44,17 @@ public class QueryRuunerDemo1 {
         DbUtils.closeQuietly(connection);
         for (Object sort : sorts)
             System.out.println(sort);
+    }
+
+    public static void mapHandler() throws SQLException{
+        String sql = "SELECT * FROM sort;";
+        List<Map<String,Object>> list = queryRunner.query(connection,sql,new MapListHandler());
+        DbUtils.closeQuietly(connection);
+        for (Map<String,Object> map:list){
+            for (String key :map.keySet())
+                System.out.print(key+":"+map.get(key)+"\t");
+            System.out.println();
+        }
     }
 
 }
