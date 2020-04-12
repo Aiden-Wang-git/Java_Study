@@ -2,6 +2,7 @@ package day_28;
 
 import java.io.IOException;
 import java.net.*;
+import java.util.Scanner;
 
 /**
  * @program: Java_Test
@@ -14,15 +15,19 @@ public class UDPSent {
         /**
          * 创建包装类对象，包装要发送的数据，接收端IP,端口
          */
-        byte[] bytes = "你好，这是UDP发送的内容".getBytes();
+        Scanner scanner = new Scanner(System.in);
         InetAddress inetAddress =InetAddress.getLocalHost();
 //        String IP = inetAddress.getHostAddress();
-        DatagramPacket dp = new DatagramPacket(bytes,bytes.length,inetAddress,6000);
+        DatagramSocket ds = new DatagramSocket();
+        while (true){
+            String message = scanner.nextLine();
+            byte[] bytes = message.getBytes();
+            DatagramPacket dp = new DatagramPacket(bytes,bytes.length,inetAddress,6000);
+            ds.send(dp);
+        }
         /**
          * 数据包的发送和接受对象
          */
-        DatagramSocket ds = new DatagramSocket();
-        ds.send(dp);
-        ds.close();
+//        ds.close();
     }
 }
